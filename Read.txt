@@ -1,0 +1,14 @@
+ARProject
+
+☆内容
+OculusRiftとPSeyeを使ってARマーカーを認識して3Dモデル(ミク)を表示する
+
+☆必要なソフトや機材
+
+・Unity4.0以降
+
+・Oculus Rift
+
+・PSeye * 2個
+
+・CL-eye-DriverとCL-eye-Platform-SDK(PSeyeに必要)
