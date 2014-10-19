@@ -147,6 +147,7 @@ public class OVRCameraController : OVRComponent
 		// Using the calculated FOV, based on distortion parameters, yeilds the best results.
 		// However, public functions will allow to override the FOV if desired
 		VerticalFOV = OVRDevice.VerticalFOV();
+		VerticalFOV = 50.0f;
 		
 		// Store aspect ratio as well
 		AspectRatio = OVRDevice.CalculateAspectRatio();

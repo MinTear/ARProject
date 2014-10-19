@@ -5,7 +5,7 @@
 	<Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
 	<ProductVersion>10.0.20506</ProductVersion>
 	<SchemaVersion>2.0</SchemaVersion>
-	<ProjectGuid>{FCF85B7B-4287-061B-843C-E132B5A412AB}</ProjectGuid>
+	<ProjectGuid>{45E33AF8-4EA6-21D2-744F-1B6FE564BCCA}</ProjectGuid>
 	<OutputType>Library</OutputType>
 	<AppDesignerFolder>Properties</AppDesignerFolder>
 	<RootNamespace></RootNamespace>
@@ -52,16 +52,60 @@
      <Compile Include="Assets\Oculus Rift\OVR\Editor\OVREditorGUIUtility.cs" />
      <Compile Include="Assets\Oculus Rift\OVR\Editor\OVRPlayerControllerEditor.cs" />
      <Compile Include="Assets\Oculus Rift\OVR\Editor\OVRPrefabs.cs" />
-     <Compile Include="Assets\PS Eye\Editor\PSEyeTextureEditor.cs" />
+     <Compile Include="Assets\UnityChan\Editor\CreateLocatorHere.cs" />
+     <None Include="Assets\UnityChan\Models\UnityChanShader\Shader\Unitychan_chara_eye.shader" />
+     <None Include="Assets\UnityChan\Models\UnityChanShader\Shader\Unitychan_chara_fuku.shader" />
+     <None Include="Assets\MikuMikuDance for Unity\Resources\PMDMaterial\Shaders\MeshPmdMaterialVertFrag.cginc" />
+     <None Include="Assets\MikuMikuDance for Unity\PMD\Tda式初音ミク・アペンド改変Ver1.06\Tda様のReadMe.txt" />
+     <None Include="Assets\PMD\Tda式初音ミク・アペンド改変Ver1.06\ReadMe.txt" />
+     <None Include="Assets\MikuMikuDance for Unity\license.txt" />
+     <None Include="Assets\MikuMikuDance for Unity\PMD\Tda式初音ミク・アペンド改変Ver1.06\Tda式初音ミク・アペンド_m3456ver_1.06.pmd.xml" />
+     <None Include="Assets\UnityChan\Voice\unity-chan_voice_list.txt" />
+     <None Include="Assets\PMD\Tda式初音ミク・アペンド改変Ver1.06\Tda様のReadMe.txt" />
+     <None Include="Assets\PMD\Tda式初音ミク・アペンド改変Ver1.06\Tda式初音ミク・アペンド_m3456ver_1.06.pmd.xml" />
+     <None Include="Assets\UnityChan\Models\UnityChanShader\Shader\Unitychan_chara_fuku_ds.shader" />
+     <None Include="Assets\UnityChan\Models\UnityChanShader\Shader\Unitychan_chara_eye_blend.shader" />
+     <None Include="Assets\MikuMikuDance for Unity\PMD\Tda式初音ミク・アペンド改変Ver1.06\Tda様のReadMe(ねこみみ).txt" />
+     <None Include="Assets\UnityChan\Models\UnityChanShader\Shader\Unitychan_chara_hair_ds.shader" />
+     <None Include="Assets\MikuMikuDance for Unity\Resources\PMDMaterial\Shaders\MeshPmdMaterial-Trans.shader" />
+     <None Include="Assets\UnityChan\Models\UnityChanShader\Shader\Unitychan_chara_akarami_blend.shader" />
+     <None Include="Assets\PMD\Tda式初音ミク・アペンド改変Ver1.06\readme_English.txt" />
      <None Include="Assets\Oculus Rift\OVR\OVRImageEffects\OVRLensCorrection_CA.shader" />
-     <None Include="Assets\Data\NyIdMarker.txt" />
+     <None Include="Assets\MikuMikuDance for Unity\変更箇所.txt" />
+     <None Include="Assets\MikuMikuDance for Unity\PMD\Tda式初音ミク・アペンド改変Ver1.06\readme_English.txt" />
+     <None Include="Assets\UnityChan\Models\UnityChanShader\Shader\Unitychan_chara_hair.shader" />
+     <None Include="Assets\UnityChan\Stage\Shader\AlphaMask.shader" />
+     <None Include="Assets\UnityChan\Models\UnityChanShader\Shader\Unitychan_chara_eyelash_blend.shader" />
+     <None Include="Assets\MikuMikuDance for Unity\Resources\PMDMaterial\Shaders\MeshPmdMaterial.shader" />
+     <None Include="Assets\MikuMikuDance for Unity\Resources\PMDMaterial\Shaders\MeshPmdMaterialOutline.shader" />
+     <None Include="Assets\MikuMikuDance for Unity\Resources\PMDMaterial\Shaders\MeshPmdMaterialOutline-Trans.shader" />
+     <None Include="Assets\MikuMikuDance for Unity\PMD\Tda式初音ミク・アペンド改変Ver1.06\ReadMe.txt" />
+     <None Include="Assets\MikuMikuDance for Unity\Resources\PMDMaterial\Shaders\MeshPmdMaterialSurface.cginc" />
+     <None Include="Assets\UnityChan\Models\UnityChanShader\Shader\Unitychan_chara_hada.shader" />
+     <None Include="Assets\NyARToolKit\Data\NyIdMarker.txt" />
+     <None Include="Assets\UnityChan\Models\UnityChanShader\Shader\Unitychan_chara_hada_blend.shader" />
      <None Include="Assets\Oculus Rift\OVR\OVRImageEffects\OVRLensCorrection.shader" />
      <None Include="Assets\Oculus Rift\OVR\Shaders\OVRGUIShader.shader" />
+     <None Include="Assets\MikuMikuDance for Unity\Resources\HalfLambert.shader" />
+     <None Include="Assets\Materials\ClippingMask.shader" />
+     <None Include="Assets\PMD\Tda式初音ミク・アペンド改変Ver1.06\Tda様のReadMe(ねこみみ).txt" />
  <Reference Include="UnityEngine.UI">
  <HintPath>C:/Program Files (x86)/Unity/Editor/Data/UnityExtensions/Unity/GUISystem/4.6.0/UnityEngine.UI.dll</HintPath>
  </Reference>
  <Reference Include="UnityEditor.UI">
  <HintPath>C:/Program Files (x86)/Unity/Editor/Data/UnityExtensions/Unity/GUISystem/4.6.0/Editor/UnityEditor.UI.dll</HintPath>
+ </Reference>
+ <Reference Include="BulletXNA-Unity">
+ <HintPath>C:/Users/keisuke/Downloads/StereoAR-for-Unity-master/StereoAR-for-Unity-master/Assets/BulletXNA/BulletXNA-Unity.dll</HintPath>
+ </Reference>
+ <Reference Include="SyntaxTree.VisualStudio.Unity.Bridge">
+ <HintPath>C:/Users/keisuke/Downloads/StereoAR-for-Unity-master/StereoAR-for-Unity-master/Assets/UnityVS/Editor/SyntaxTree.VisualStudio.Unity.Bridge.dll</HintPath>
+ </Reference>
+ <Reference Include="SyntaxTree.VisualStudio.Unity.Messaging">
+ <HintPath>C:/Users/keisuke/Downloads/StereoAR-for-Unity-master/StereoAR-for-Unity-master/Assets/UnityVS/Editor/SyntaxTree.VisualStudio.Unity.Messaging.dll</HintPath>
+ </Reference>
+ <Reference Include="UnityVS.VersionSpecific">
+ <HintPath>C:/Users/keisuke/Downloads/StereoAR-for-Unity-master/StereoAR-for-Unity-master/Assets/UnityVS/Editor/UnityVS.VersionSpecific.dll</HintPath>
  </Reference>
  <Reference Include="UnityEditor.Graphs">
  <HintPath>C:/Program Files (x86)/Unity/Editor/Data/Managed/UnityEditor.Graphs.dll</HintPath>
@@ -69,7 +113,7 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="Assembly-CSharp-vs.csproj">
-      <Project>{6F3B1A3C-2B4E-0C02-BD08-AEF49C45C39A}</Project>      <Name>Assembly-CSharp-vs</Name>    </ProjectReference>
+      <Project>{93FE0ED1-BD25-1313-0384-8734F4181ADB}</Project>      <Name>Assembly-CSharp-vs</Name>    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

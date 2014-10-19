@@ -4,7 +4,7 @@ using System.Collections;
 using System.Runtime.InteropServices;
 using System.Threading;
 
-public class PSEyeTexture : MonoBehaviour 
+public class PSEyeTexture : IDisposable
 {
 	// dll name
     private const string CLEyeMulticam_DllName = "CLEyeMulticam.dll";
@@ -357,31 +357,59 @@ public class PSEyeTexture : MonoBehaviour
 	
 	
 	#region [ Private members ]
+	// camera
 	private IntPtr camera_ = IntPtr.Zero;
 	private int width_  = 0;
 	private int height_ = 0;
 	
+	// texture
 	private Texture2D texture_;
 	private Color32[] pixels_, pixelsABGR_;
 	private GCHandle  pixels_handle_;
+	private bool      isReverse_;
 	
+	// thread
 	private Thread thread_;
 	private Mutex  mutex_;
+	
+	// disposal
+	private bool disposed_ = false;
 	#endregion
 	
 	
-	#region [ Public members ]
-	public int cameraNumber = 0;
-	public bool isGaming() {
+	#region [ Getter / Setter ]
+	public bool IsGaming() {
 		return camera_ != IntPtr.Zero;
+	}
+	
+	public int CameraNumber { get; set; }
+	
+	public int FrameRate    { get; set; }
+	
+	public int Width {
+		get { return width_;  }
+		set { width_ = value; }
+	}
+	
+	public int Height {
+		get { return height_;  }
+		set { height_ = value;  }
+	}
+	
+	public Texture2D Texture {
+		get { return texture_;  }
 	}
 	#endregion
 	
 	
 	#region [ Member functions ]
-	void Awake() {
+	public PSEyeTexture(int camera_number, int frame_rate, bool is_reverse = false) {
+		// set member
+		CameraNumber = camera_number;
+		FrameRate    = frame_rate;
+		
 		// create CLEye Camera
-		camera_ = CLEyeCreateCamera(CameraUUID(cameraNumber), CLEyeCameraColorMode.CLEYE_COLOR_RAW, CLEyeCameraResolution.CLEYE_VGA, 30);	
+		camera_ = CLEyeCreateCamera(CameraUUID(CameraNumber), CLEyeCameraColorMode.CLEYE_COLOR_RAW, CLEyeCameraResolution.CLEYE_VGA, FrameRate);	
 		CLEyeCameraGetFrameDimensions(camera_, ref width_, ref height_);
 		
 		// set auto mode
@@ -390,26 +418,39 @@ public class PSEyeTexture : MonoBehaviour
 		AutoExposure     = true;
 		
 		// initialize texture parameters
-		texture_ = new Texture2D(width_, height_, TextureFormat.ARGB32, false);
-		pixels_  = texture_.GetPixels32();
+		texture_       = new Texture2D(width_, height_, TextureFormat.ARGB32, false);
+		pixels_        = texture_.GetPixels32();
 		pixels_handle_ = GCHandle.Alloc(pixels_, GCHandleType.Pinned);
-		renderer.material.mainTexture = texture_;
-		pixelsABGR_ = texture_.GetPixels32();
+		pixelsABGR_    = texture_.GetPixels32();
+		isReverse_     = is_reverse;
+	}
+	
+	~PSEyeTexture() {
+		Dispose();
+	}
+	
+	public void Dispose() {
+		if (disposed_) return;
+		disposed_ = true;
 		
-		// make scale-z inverse to reverse texture
-		Vector3 scale = transform.localScale;
-		transform.localScale = new Vector3(scale.x, scale.y, -scale.z);
-		
-		// start capturing
+		Stop();
+		pixels_handle_.Free();
+		CLEyeDestroyCamera(camera_);
+	}
+	
+	public void Start() {
 		CLEyeCameraStart(camera_);
-		
-		// initialize thread
-		mutex_ = new Mutex(true);
+		mutex_  = new Mutex(true);
 		thread_ = new Thread(ThreadWorker);
 		thread_.Start();
 	}
 	
-	void Update() {
+	public void Stop() {
+		thread_.Abort();
+		CLEyeCameraStop(camera_);
+	}
+	
+	public void Update() {
 		mutex_.ReleaseMutex();
 		mutex_.WaitOne();
 		
@@ -418,7 +459,11 @@ public class PSEyeTexture : MonoBehaviour
 		texture_.Apply();
 	}
 	
-	void ThreadWorker() {
+	public void GetPixels32(Color32[] pixels) {
+		pixelsABGR_.CopyTo(pixels, 0);
+	}
+	
+	private void ThreadWorker() {
 		try {
 			_ThreadWorker();
 		} catch (Exception e) {
@@ -428,31 +473,42 @@ public class PSEyeTexture : MonoBehaviour
 		}	
 	}
 	
-	void _ThreadWorker() {
+	private void _ThreadWorker() {
 		for (;;) {
 			Thread.Sleep(0);
 			
 			// get pixel data from PS Eye
 			CLEyeCameraGetFrame(camera_, pixels_handle_.AddrOfPinnedObject(), 500);
 			
-			// swap RED and BLUE
+			// swap RED and BLUE and reverse the texture vertically
 			// (synchronize the following procedure with the main thread)
 			mutex_.WaitOne();
-			for (int i = 0; i < width_ * height_; ++i) {
-				pixelsABGR_[i].a = pixels_[i].a; 
-				pixelsABGR_[i].r = pixels_[i].b;
-				pixelsABGR_[i].g = pixels_[i].g;
-				pixelsABGR_[i].b = pixels_[i].r; 
+			if (isReverse_) {
+				for (int i = 0; i < height_; ++i) {
+					for (int j = 0; j < width_; ++j) {
+						int n = i * width_ + j;
+						int m = i * width_ + (width_ - j - 1);
+						pixelsABGR_[n].a = pixels_[m].a; 
+						pixelsABGR_[n].r = pixels_[m].b;
+						pixelsABGR_[n].g = pixels_[m].g;
+						pixelsABGR_[n].b = pixels_[m].r; 
+					}
+				}
+			} else {
+				int last = width_ * height_ - 1;
+				for (int i = 0; i < height_; ++i) {
+					for (int j = 0; j < width_; ++j) {
+						int n = i * width_ + j;
+						int m = i * width_ + (width_ - j - 1);
+						pixelsABGR_[n].a = pixels_[last - m].a; 
+						pixelsABGR_[n].r = pixels_[last - m].b;
+						pixelsABGR_[n].g = pixels_[last - m].g;
+						pixelsABGR_[n].b = pixels_[last - m].r; 
+					}
+				}
 			}
 			mutex_.ReleaseMutex();
 		}	
-	}
-	
-	void OnApplicationQuit() {
-		thread_.Abort();
-		pixels_handle_.Free();
-		CLEyeCameraStop(camera_);
-		CLEyeDestroyCamera(camera_);
 	}
 	#endregion
 }

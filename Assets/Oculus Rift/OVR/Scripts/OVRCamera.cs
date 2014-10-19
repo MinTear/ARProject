@@ -130,8 +130,8 @@ public class OVRCamera : OVRComponent
 		// NOTE: Setting the camera here increases latency, but ensures
 		// that all Unity sub-systems that rely on camera location before
 		// being set to render are satisfied. 
-		if(CameraController.CallInPreRender == false)
-			SetCameraOrientation();
+		//if(CameraController.CallInPreRender == false)
+			//SetCameraOrientation();
 	
 	}
 	

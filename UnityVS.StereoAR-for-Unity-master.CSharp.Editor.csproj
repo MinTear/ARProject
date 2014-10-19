@@ -1,0 +1,126 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>10.0.20506</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{25DB67E3-2BE5-AB5E-DCA6-FFC6E88CB092}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <RootNamespace></RootNamespace>
+    <AssemblyName>Assembly-CSharp-Editor</AssemblyName>
+    <FileAlignment>512</FileAlignment>
+    <ProjectTypeGuids>{E097FAD1-6243-4DAD-9C02-E9B9EFC3FFC1};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <TargetFrameworkIdentifier>.NETFramework</TargetFrameworkIdentifier>
+    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+    <TargetFrameworkProfile>Unity Full v3.5</TargetFrameworkProfile>
+    <CompilerResponseFile></CompilerResponseFile>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>Temp\UnityVS_bin\Debug\</OutputPath>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <DefineConstants>DEBUG;TRACE;UNITY_4_6_0;UNITY_4_6;UNITY_STANDALONE_WIN;ENABLE_MICROPHONE;ENABLE_TEXTUREID_MAP;ENABLE_UNITYEVENTS;ENABLE_NEW_HIERARCHY ;ENABLE_AUDIO_FMOD;UNITY_STANDALONE;ENABLE_MONO;ENABLE_TERRAIN;ENABLE_SUBSTANCE;ENABLE_GENERICS;INCLUDE_WP8SUPPORT;ENABLE_MOVIES;ENABLE_WWW;ENABLE_IMAGEEFFECTS;ENABLE_4_6_FEATURES;INCLUDE_WP_BLUE_SUPPORT;ENABLE_WEBCAM;INCLUDE_METROSUPPORT;RENDER_SOFTWARE_CURSOR;ENABLE_NETWORK;ENABLE_PHYSICS;ENABLE_CACHING;ENABLE_CLOTH;ENABLE_2D_PHYSICS;ENABLE_SHADOWS;ENABLE_AUDIO;ENABLE_NAVMESH_CARVING;ENABLE_DUCK_TYPING;ENABLE_SINGLE_INSTANCE_BUILD_SETTING;ENABLE_PROFILER;UNITY_EDITOR;UNITY_EDITOR_WIN;UNITY_TEAM_LICENSE;UNITY_PRO_LICENSE</DefineConstants>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>Temp\UnityVS_bin\Release\</OutputPath>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <DefineConstants>TRACE;UNITY_4_6_0;UNITY_4_6;UNITY_STANDALONE_WIN;ENABLE_MICROPHONE;ENABLE_TEXTUREID_MAP;ENABLE_UNITYEVENTS;ENABLE_NEW_HIERARCHY ;ENABLE_AUDIO_FMOD;UNITY_STANDALONE;ENABLE_MONO;ENABLE_TERRAIN;ENABLE_SUBSTANCE;ENABLE_GENERICS;INCLUDE_WP8SUPPORT;ENABLE_MOVIES;ENABLE_WWW;ENABLE_IMAGEEFFECTS;ENABLE_4_6_FEATURES;INCLUDE_WP_BLUE_SUPPORT;ENABLE_WEBCAM;INCLUDE_METROSUPPORT;RENDER_SOFTWARE_CURSOR;ENABLE_NETWORK;ENABLE_PHYSICS;ENABLE_CACHING;ENABLE_CLOTH;ENABLE_2D_PHYSICS;ENABLE_SHADOWS;ENABLE_AUDIO;ENABLE_NAVMESH_CARVING;ENABLE_DUCK_TYPING;ENABLE_SINGLE_INSTANCE_BUILD_SETTING;ENABLE_PROFILER;UNITY_EDITOR;UNITY_EDITOR_WIN;UNITY_TEAM_LICENSE;UNITY_PRO_LICENSE</DefineConstants>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="mscorlib" />
+    <Reference Include="System" />
+    <Reference Include="System.XML" />
+    <Reference Include="System.Core" />
+    <Reference Include="Boo.Lang" />
+    <Reference Include="UnityScript.Lang" />
+    <Reference Include="UnityEngine">
+      <HintPath>Library\UnityAssemblies\UnityEngine.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEditor">
+      <HintPath>Library\UnityAssemblies\UnityEditor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="UnityEngine.UI">
+      <HintPath>Library\UnityAssemblies\UnityEngine.UI.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEditor.UI">
+      <HintPath>Library\UnityAssemblies\UnityEditor.UI.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEditor.Graphs">
+      <HintPath>Library\UnityAssemblies\UnityEditor.Graphs.dll</HintPath>
+    </Reference>
+    <Reference Include="BulletXNA-Unity">
+      <HintPath>Assets\BulletXNA\BulletXNA-Unity.dll</HintPath>
+    </Reference>
+    <Reference Include="SyntaxTree.VisualStudio.Unity.Bridge">
+      <HintPath>Assets\UnityVS\Editor\SyntaxTree.VisualStudio.Unity.Bridge.dll</HintPath>
+    </Reference>
+    <Reference Include="SyntaxTree.VisualStudio.Unity.Messaging">
+      <HintPath>Assets\UnityVS\Editor\SyntaxTree.VisualStudio.Unity.Messaging.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityVS.VersionSpecific">
+      <HintPath>Assets\UnityVS\Editor\UnityVS.VersionSpecific.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="UnityVS.StereoAR-for-Unity-master.CSharp.csproj">
+      <Project>{85469813-204B-4A3E-4E93-19ABF497708B}</Project>
+      <Name>UnityVS.StereoAR-for-Unity-master.CSharp</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Assets\Oculus Rift\OVR\Editor\OVRBuild.cs" />
+    <Compile Include="Assets\Oculus Rift\OVR\Editor\OVRCameraControllerEditor.cs" />
+    <Compile Include="Assets\Oculus Rift\OVR\Editor\OVRDeviceEditor.cs" />
+    <Compile Include="Assets\Oculus Rift\OVR\Editor\OVREditorGUIUtility.cs" />
+    <Compile Include="Assets\Oculus Rift\OVR\Editor\OVRPlayerControllerEditor.cs" />
+    <Compile Include="Assets\Oculus Rift\OVR\Editor\OVRPrefabs.cs" />
+    <Compile Include="Assets\UnityChan\Editor\CreateLocatorHere.cs" />
+    <None Include="Assets\Materials\ClippingMask.shader" />
+    <None Include="Assets\MikuMikuDance for Unity\license.txt" />
+    <None Include="Assets\MikuMikuDance for Unity\PMD\Tda式初音ミク・アペンド改変Ver1.06\ReadMe.txt" />
+    <None Include="Assets\MikuMikuDance for Unity\PMD\Tda式初音ミク・アペンド改変Ver1.06\readme_English.txt" />
+    <None Include="Assets\MikuMikuDance for Unity\PMD\Tda式初音ミク・アペンド改変Ver1.06\Tda式初音ミク・アペンド_m3456ver_1.06.pmd.xml" />
+    <None Include="Assets\MikuMikuDance for Unity\PMD\Tda式初音ミク・アペンド改変Ver1.06\Tda様のReadMe(ねこみみ).txt" />
+    <None Include="Assets\MikuMikuDance for Unity\PMD\Tda式初音ミク・アペンド改変Ver1.06\Tda様のReadMe.txt" />
+    <None Include="Assets\MikuMikuDance for Unity\Resources\HalfLambert.shader" />
+    <None Include="Assets\MikuMikuDance for Unity\Resources\PMDMaterial\Shaders\MeshPmdMaterial.shader" />
+    <None Include="Assets\MikuMikuDance for Unity\Resources\PMDMaterial\Shaders\MeshPmdMaterialOutline.shader" />
+    <None Include="Assets\MikuMikuDance for Unity\Resources\PMDMaterial\Shaders\MeshPmdMaterialOutline-Trans.shader" />
+    <None Include="Assets\MikuMikuDance for Unity\Resources\PMDMaterial\Shaders\MeshPmdMaterialSurface.cginc" />
+    <None Include="Assets\MikuMikuDance for Unity\Resources\PMDMaterial\Shaders\MeshPmdMaterial-Trans.shader" />
+    <None Include="Assets\MikuMikuDance for Unity\Resources\PMDMaterial\Shaders\MeshPmdMaterialVertFrag.cginc" />
+    <None Include="Assets\MikuMikuDance for Unity\変更箇所.txt" />
+    <None Include="Assets\NyARToolKit\Data\NyIdMarker.txt" />
+    <None Include="Assets\Oculus Rift\OVR\OVRImageEffects\OVRLensCorrection.shader" />
+    <None Include="Assets\Oculus Rift\OVR\OVRImageEffects\OVRLensCorrection_CA.shader" />
+    <None Include="Assets\Oculus Rift\OVR\Shaders\OVRGUIShader.shader" />
+    <None Include="Assets\PMD\Tda式初音ミク・アペンド改変Ver1.06\ReadMe.txt" />
+    <None Include="Assets\PMD\Tda式初音ミク・アペンド改変Ver1.06\readme_English.txt" />
+    <None Include="Assets\PMD\Tda式初音ミク・アペンド改変Ver1.06\Tda式初音ミク・アペンド_m3456ver_1.06.pmd.xml" />
+    <None Include="Assets\PMD\Tda式初音ミク・アペンド改変Ver1.06\Tda様のReadMe(ねこみみ).txt" />
+    <None Include="Assets\PMD\Tda式初音ミク・アペンド改変Ver1.06\Tda様のReadMe.txt" />
+    <None Include="Assets\UnityChan\Models\UnityChanShader\Shader\Unitychan_chara_akarami_blend.shader" />
+    <None Include="Assets\UnityChan\Models\UnityChanShader\Shader\Unitychan_chara_eye.shader" />
+    <None Include="Assets\UnityChan\Models\UnityChanShader\Shader\Unitychan_chara_eye_blend.shader" />
+    <None Include="Assets\UnityChan\Models\UnityChanShader\Shader\Unitychan_chara_eyelash_blend.shader" />
+    <None Include="Assets\UnityChan\Models\UnityChanShader\Shader\Unitychan_chara_fuku.shader" />
+    <None Include="Assets\UnityChan\Models\UnityChanShader\Shader\Unitychan_chara_fuku_ds.shader" />
+    <None Include="Assets\UnityChan\Models\UnityChanShader\Shader\Unitychan_chara_hada.shader" />
+    <None Include="Assets\UnityChan\Models\UnityChanShader\Shader\Unitychan_chara_hada_blend.shader" />
+    <None Include="Assets\UnityChan\Models\UnityChanShader\Shader\Unitychan_chara_hair.shader" />
+    <None Include="Assets\UnityChan\Models\UnityChanShader\Shader\Unitychan_chara_hair_ds.shader" />
+    <None Include="Assets\UnityChan\Stage\Shader\AlphaMask.shader" />
+    <None Include="Assets\UnityChan\Voice\unity-chan_voice_list.txt" />
+    <None Include="Assets\UnityVS\Editor\SyntaxTree.VisualStudio.Unity.Bridge.dll" />
+    <None Include="Assets\UnityVS\Editor\SyntaxTree.VisualStudio.Unity.Messaging.dll" />
+    <None Include="Assets\UnityVS\Editor\UnityVS.VersionSpecific.dll" />
+  </ItemGroup>
+  <Import Project="$(MSBuildExtensionsPath)\SyntaxTree\UnityVS\2013\UnityVS.CSharp.targets" />
+</Project>
