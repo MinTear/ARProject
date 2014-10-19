@@ -12,3 +12,6 @@ OculusRiftとPSeyeを使ってARマーカーを認識して3Dモデル(ミク)を表示する
 ・PSeye * 2個
 
 ・CL-eye-DriverとCL-eye-Platform-SDK(PSeyeに必要)
+
+※このプロジェクトはhttps://github.com/hecomi/StereoAR-for-Unityのプロジェクトを使わせてもらっています
+あくまでテストなのでご了承ください
